@@ -1,16 +1,20 @@
 import React, { useContext } from "react";
 import { Questions } from "../../questions";
 import { QuizContext } from "../../context/quizContext";
+import { AuthContext } from "../../context/context";
 
 export default function Quiz() {
   const { currentQuestion, showScore, score, handleAnswerOptionClick } =
     useContext(QuizContext);
+
+    const{logout,user,showUser} = useContext(AuthContext)
 
   return (
     <div className="quiz">
       {showScore ? (
         <div className="score-section">
           You scored {score} out of {Questions.length}
+          <button onClick={logout}>logout</button>
         </div>
       ) : (
         <>

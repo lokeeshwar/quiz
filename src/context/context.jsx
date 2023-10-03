@@ -9,7 +9,9 @@ export default function Context(props) {
         password: "",
       });
 
-      const[user,Setuser] = useState()
+    const[user,Setuser] = useState()
+
+    const [showUser, setShowUser] = useState(false);
     
     //   Login page data
 
@@ -41,8 +43,16 @@ export default function Context(props) {
     
       };
 
+      const logout = () => {
+        Setuser('')
+      }
+
+      if( user !== ''){
+        setShowUser(true)
+      }
+
       const AllVallue = {
-        loginData, setLoginData,user,Setuser,handleInputChange ,handleLogin
+        loginData, setLoginData,user,Setuser,handleInputChange ,handleLogin,logout,showUser, setShowUser
       }
 
   return (
