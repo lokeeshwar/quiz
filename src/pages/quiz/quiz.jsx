@@ -11,6 +11,7 @@ export default function Quiz() {
 
   return (
     <div className="quiz">
+      <h1>{user}</h1>
       {showScore ? (
         <div className="score-section">
           You scored {score} out of {Questions.length}
