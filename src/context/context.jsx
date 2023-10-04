@@ -9,9 +9,9 @@ export default function Context(props) {
         password: "",
       });
 
-    const[user,Setuser] = useState()
+    const[user,setuser] = useState(null)
 
-    const [showUser, setShowUser] = useState(false);
+    const [isloggedin, setIsloggegin] = useState(false);
     
     //   Login page data
 
@@ -34,7 +34,8 @@ export default function Context(props) {
     
         if (user) {
           alert("Login successful");
-          Setuser(loginData.username)
+          setuser(loginData.username)
+          setIsloggegin(true)
         } else {
           alert("Login failed. Please check your credentials.");
         }
@@ -43,16 +44,14 @@ export default function Context(props) {
     
       };
 
-      const logout = () => {
-        Setuser('')
+      const logout = () =>{
+        setIsloggegin(false)
+        setuser('')
       }
 
-      if( user !== ''){
-        setShowUser(true)
-      }
 
       const AllVallue = {
-        loginData, setLoginData,user,Setuser,handleInputChange ,handleLogin,logout,showUser, setShowUser
+        loginData, setLoginData,user,setuser,handleInputChange ,handleLogin,isloggedin, setIsloggegin,logout
       }
 
   return (

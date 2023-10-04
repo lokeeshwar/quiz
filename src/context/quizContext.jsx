@@ -21,6 +21,12 @@ export default function QuizContextProvider(props) {
     }
   };
 
+  const refresh = () => {
+    setCurrentQuestion(0);
+    setShowScore(false)
+    setScore(0)
+  }
+
   const allValues = {
     currentQuestion,
     setCurrentQuestion,
@@ -29,6 +35,7 @@ export default function QuizContextProvider(props) {
     score,
     setScore,
     handleAnswerOptionClick,
+    refresh
   };
 
   return (
